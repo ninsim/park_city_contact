@@ -1,10 +1,10 @@
 {
-  "name": "express-hello-world",
+  "name": "park_city_contact",
   "version": "1.0.0",
   "description": "Express Hello World on Render",
   "main": "app.js",
-  "repository": "https://github.com/render-examples/express-hello-world",
-  "author": "Render Developers",
+  "repository": "https://github.com/orgs/ninsim/repositories",
+  "author": "JPG",
   "license": "MIT",
   "private": false,
   "scripts": {
