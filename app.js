@@ -2,11 +2,13 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 3001;
 
+// Middleware to capture hostname
 app.use((req, res, next) => {
   req.hostnameValue = req.hostname;
   next();
 });
 
+// Route handler for root path
 app.get("/", (req, res) => {
   const hostname = req.hostnameValue;
   const html = `
