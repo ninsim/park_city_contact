@@ -9,11 +9,16 @@ const server = app.listen(port, () => console.log(`Example app listening on port
 server.keepAliveTimeout = 120 * 1000;
 server.headersTimeout = 120 * 1000;
 
+app.use((req, res, next) => {
+  const hostname = req.hostname;
+//  res.send(`Hostname: ${hostname}`);
+});
+
 const html = `
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Park.City</title>
+    <title> ${hostname}.Park.City</title>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <script>
       setTimeout(() => {
@@ -54,7 +59,7 @@ const html = `
   </head>
   <body>
     <section>
-      Park.City
+       ${hostname}.Park.City
     </section>
   </body>
 </html>
