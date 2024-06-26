@@ -2,6 +2,13 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 3001;
 
+// Log the request
+app.use((req, res, next) => {
+  console.log("Incoming request hostname:", req.hostname);
+  req.hostnameValue = req.hostname;
+  next();
+});
+
 // Middleware to capture hostname
 app.use((req, res, next) => {
   req.hostnameValue = req.hostname;
