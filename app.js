@@ -4,16 +4,10 @@ const port = process.env.PORT || 3001;
 
 // Middleware to capture and process hostname
 app.use((req, res, next) => {
+  console.log("Incoming request hostname:", req.hostname);
   const fullHostname = req.hostname;
   const hostnameParts = fullHostname.split('.');
   req.hostnameValue = hostnameParts[0]; // Get the first part of the hostname
-  next();
-});
-
-// Logging
-app.use((req, res, next) => {
-  console.log("Incoming request hostname:", req.hostname);
-  req.hostnameValue = req.hostname;
   console.log("Incoming request hostnameValue:", req.hostnameValue);
   next();
 });
