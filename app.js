@@ -10,6 +10,14 @@ app.use((req, res, next) => {
   next();
 });
 
+// Logging
+app.use((req, res, next) => {
+  console.log("Incoming request hostname:", req.hostname);
+  req.hostnameValue = req.hostname;
+  console.log("Incoming request hostnameValue:", req.hostnameValue);
+  next();
+});
+
 // Route handler for root path
 app.get("/", (req, res) => {
   const hostname = req.hostnameValue;
